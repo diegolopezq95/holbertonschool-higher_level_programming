@@ -1,1 +1,2 @@
 python -m py_compile "$PYFILE"
+echo "Compiling main.py ..."
