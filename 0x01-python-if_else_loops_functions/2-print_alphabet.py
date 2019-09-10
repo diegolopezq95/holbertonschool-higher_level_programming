@@ -1,3 +1,3 @@
 #!/usr/bin/python3
-str = "abcdefghijklmnopqrstuvwxyzguillaume@ubuntu"
-print("{}".format(str), end=" ")
+for i in range(ord('a'), ord('z') + 1):
+    print("{}".format(chr(i)), end="")
