@@ -4,4 +4,3 @@ for i in range(00, 99 + 1):
         print("{:02}".format(i), end=", ")
     else:
         print("{:02}".format(i))
-        
