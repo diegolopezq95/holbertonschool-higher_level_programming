@@ -22,14 +22,14 @@ int is_palindrome(listint_t **head)
 	while (tmp != NULL)
 	{
 		buf[i] = tmp->n;
-		tmp = tmp ->next;
+		tmp = tmp->next;
 		i++;
 	}
 	j = 0;
 	i = i - 1;
 	while (i > j)
 	{
-		if (buf[i++] != buf[j--])
+		if (buf[i--] != buf[j++])
 			return (0);
 	}
 	return (1);
