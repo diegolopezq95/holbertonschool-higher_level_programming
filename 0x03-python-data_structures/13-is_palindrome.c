@@ -9,9 +9,9 @@
  */
 int is_palindrome(listint_t **head)
 {
-	ssize_t buf[8192];
+	ssize_t buf[10000];
 	size_t i, j;
-	listint_t *tmp;
+	listint_t *tmp = NULL;
 
 	tmp = *head;
 	if (head == NULL)
