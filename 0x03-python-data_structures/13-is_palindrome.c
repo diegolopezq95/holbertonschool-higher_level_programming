@@ -9,7 +9,7 @@
  */
 int is_palindrome(listint_t **head)
 {
-	int buf[1000000];
+	int buf[999999];
 	int i, j;
 	listint_t *tmp;
 
