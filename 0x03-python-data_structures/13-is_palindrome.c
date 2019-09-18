@@ -9,30 +9,25 @@
  */
 int is_palindrome(listint_t **head)
 {
-	int i = 0, j = 0, cont = 0, k = 0;
-	listint_t *tmp, *tmp2, *tmp3;
+	size_t buf[2048];
+	unsigned int i, j;
+	listint_t *tmp;
 
-	tmp2 = *head;
-	tmp3 = *head;
+	tmp = *head;
 	if (*head == NULL)
 		return (1);
-	for (cont = 0; tmp3; cont++)
-		tmp3 = tmp3->next;
-	if (cont % 2 != 0)
-		k = (cont / 2) + 1;
-	else
-		k = cont / 2;
-	for (; k > 0; k--)
-		tmp2 = tmp2->next;
-	for (i = 0; i < cont / 2; i++)
+	i = 0;
+	while (tmp != NULL)
 	{
-		j = i;
-		tmp = *head;
-		for (; j < (cont / 2) - 1; j++)
-			tmp = tmp->next;
-		if (tmp->n == tmp2->n)
-			tmp2 = tmp2->next;
-		else
+		buf[i] = tmp->n;
+		tmp = tmp ->next;
+		i++;
+	}
+	j = 0;
+	i = i - 1;
+	while (i > j)
+	{
+		if (buf[i++] != buf[j--])
 			return (0);
 	}
 	return (1);
