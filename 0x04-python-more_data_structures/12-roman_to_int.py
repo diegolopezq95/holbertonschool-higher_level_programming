@@ -17,6 +17,10 @@ def roman_to_int(roman_string):
     }
     num = 0
     i = 0
+    if type(roman_string) is not str:
+        return 0
+    if roman_string is None:
+        return 0
     while i < len(roman_string):
         if roman_string[i: i + 2] in my_dir:
             num += my_dir[roman_string[i: i + 2]]
