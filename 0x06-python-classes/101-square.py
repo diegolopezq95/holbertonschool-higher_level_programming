@@ -103,7 +103,7 @@ class Square:
             if self.__position[1] > 0:
                 for row in range(self.__position[1]):
                     string.append("\n")
-            for row in range(self.__size - 1):
+            for row in range(self.__size):
                 for columnpos in range(self.__position[0]):
                     string.append(" ")
                 for columnsize in range(self.__size):
