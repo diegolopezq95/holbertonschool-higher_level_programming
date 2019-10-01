@@ -73,7 +73,7 @@ class Square:
         """
         if self.__size == 0:
             print()
-        if self.__position:
+        else:
             for row in range(self.__position[1]):
                 print()
             for row in range(self.__size):
