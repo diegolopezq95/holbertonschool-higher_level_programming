@@ -3,6 +3,8 @@
 See:
     ./0-main.py test file
 """
+
+
 class Square:
     """ Empty class Square using pass
     """
