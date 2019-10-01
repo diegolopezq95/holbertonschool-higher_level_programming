@@ -8,7 +8,7 @@ Private instance attribute:
 
 
 class Square:
-    """ Empty class Square now with size private attribute
+    """ Empty class Square now with Area
     """
     def __init__(self, size=0):
         """
