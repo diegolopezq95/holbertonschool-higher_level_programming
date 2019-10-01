@@ -61,7 +61,7 @@ class Square:
         Position setter. Sets the position of the square
         """
         if (isinstance(value, tuple) or len(value) == 2 or
-           isinstance(value[0], int) or isinstance(value[0], int) or
+            isinstance(value[0], int) or isinstance(value[1], int) or
            (value[0] >= 0 or value[1] >= 0)):
             self._position = value
         else:
