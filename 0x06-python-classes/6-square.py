@@ -17,6 +17,10 @@ class Square:
             size: size of the square and is positive.
             position: position of the square
         """
+        if not isinstance(size, int):
+            raise TypeError("size must be an integer")
+        if size < 0:
+            raise ValueError("size must be >= 0")
         self.__size = size
         self.__position = position
 
@@ -69,13 +73,13 @@ class Square:
         includes the position
         """
         if self.__size == 0:
-            print()
-        else:
+            print("")
+        if self.__position:
             for row in range(self.__position[1]):
                 print()
-            for row in range(self.__size):
-                for column in range(self.__position[0]):
-                    print(" ", end="")
-                for column in range(self.__size):
-                    print("#", end="")
-                print()
+        for row in range(self.__size):
+            for j in range(self.__position[0]):
+                print(" ", end="")
+            for column in range(self.__size):
+                print("#", end="")
+            print()
