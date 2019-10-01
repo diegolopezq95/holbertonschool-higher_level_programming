@@ -76,5 +76,9 @@ class Square:
         if self.__position:
             for row in range(self.__position[1]):
                 print()
-        for column in range(self.__size):
-            print("{}{}".format(" " * self.__position[0], '#' * self.__size))
+            for row in range(self.__size):
+                for column in range(self.__position[0]):
+                    print(" ", end="")
+                for column in range(self.__size):
+                    print("#", end="")
+                print()
