@@ -93,7 +93,7 @@ class Square:
 
     def __str__(self):
         """
-        Print a Square depending of the size
+        Return (to print()) a Square depending of the size
         includes the position
         """
         string = []
