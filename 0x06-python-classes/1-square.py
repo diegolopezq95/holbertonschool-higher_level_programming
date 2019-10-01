@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ This module creates an empty class Square that defines a square
 Example:
-    ./0-main.py test file
+    ./1-main.py test file
 Private instance attribute:
     size
 """
