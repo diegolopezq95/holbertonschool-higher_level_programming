@@ -1,0 +1,76 @@
+The ``101-lazy_matrix_mul`` module
+======================
+
+Using ``lazy_matrix_mul``
+-------------------
+
+First import
+``lazy_matrix_mul`` from the ``101-lazy_matrix_mul`` module:
+
+    >>> lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+
+Now use it:
+
+    >>> m_a = [[1, 2], [3, 4]]
+    >>> m_b = [[1, 2], [3, 4]]
+    >>> lazy_matrix_mul(m_a, m_b)
+    array([[ 7, 10],
+      	   [15, 22]])
+
+
+    >>> m_a = [[1, 2], [3, 4], 6]
+    >>> m_b = [[1, 2], [3, 4]]
+    >>> lazy_matrix_mul(m_a, m_b)
+    Traceback (most recent call last):
+        ...
+    ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (n?,k),(k,m?)->(n?,m?) (size 2 is different from 3)
+
+    >>> m_a = [[1, 2], [3, 4]]
+    >>> m_b = [[1, 2], [3, 4]]
+    >>> lazy_matrix_mul(2, m_b)
+    Traceback (most recent call last):
+        ...
+    ValueError: matmul: Input operand 0 does not have enough dimensions (has 0, gufunc core with signature (n?,k),(k,m?)->(n?,m?) requires 1)
+
+
+    >>> m_a = [[1, "Holberton"], [3, 4]]
+    >>> m_b = [[1, 2], [3, 4]]
+    >>> lazy_matrix_mul(m_a, m_b)
+    Traceback (most recent call last):
+        ...
+    TypeError: ufunc 'matmul' did not contain a loop with signature matching types dtype('<U21') dtype('<U21') dtype('<U21')
+
+    >>> m_a = [[1, 2], [3, 4], [3, 4, 5]]
+    >>> m_b = [[1, 2], [3, 4]]
+    >>> lazy_matrix_mul(m_a, m_b)
+    Traceback (most recent call last):
+        ...
+    ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (n?,k),(k,m?)->(n?,m?) (size 2 is different from 3)
+
+    >>> m_a = [[1, 2], [3, 4]]
+    >>> m_b = [[1, 2], [3, 4], [3, 4, 5]]
+    >>> lazy_matrix_mul(m_a, m_b)
+    Traceback (most recent call last):
+        ...
+    ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (n?,k),(k,m?)->(n?,m?) (size 3 is different from 2)
+
+    >>> m_a = [[1, 2], [3, 4]]
+    >>> m_b = [[1, 2], [3, 4], [5, 6]]
+    >>> lazy_matrix_mul(m_a, m_b)
+    Traceback (most recent call last):
+        ...
+    ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (n?,k),(k,m?)->(n?,m?) (size 3 is different from 2)
+
+    >>> m_a = [[1, 2], [3, 4]]
+    >>> m_b = [[]]
+    >>> lazy_matrix_mul(m_a, m_b)
+    Traceback (most recent call last):
+    ...
+    ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (n?,k),(k,m?)->(n?,m?) (size 1 is different from 2)
+
+    >>> m_a = [[]]
+    >>> m_b = [[1, 2], [3, 4]]
+    >>> lazy_matrix_mul(m_a, m_b)
+    Traceback (most recent call last):
+        ...
+    ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (n?,k),(k,m?)->(n?,m?) (size 2 is different from 0)
