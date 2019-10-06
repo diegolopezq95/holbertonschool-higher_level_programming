@@ -42,3 +42,9 @@ Now use it:
     Traceback (most recent call last):
         ...
     TypeError: add_integer() missing 1 required positional argument: 'a'
+
+    >>> print(add_integer(1e10000, 1e10000))
+    None
+
+    >>> print(add_integer(float("Nan")))
+    nan
