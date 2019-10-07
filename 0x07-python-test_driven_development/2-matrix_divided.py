@@ -13,6 +13,8 @@ def matrix_divided(matrix, div):
     message = "matrix must be a matrix (list of lists) of integers/floats"
     if not isinstance(matrix, list) or not matrix:
         raise TypeError(message)
+    if type(matrix[0]) is not list or (len(matrix[0]) == 0):
+        raise TypeError(message)
     if div == 0:
         raise ZeroDivisionError("division by zero")
     if not isinstance(div, int) and not isinstance(div, float):
