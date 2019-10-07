@@ -71,4 +71,3 @@ class Rectangle:
             if row < self.__height - 1:
                 string.append("\n")
         return("".join(string))
-                
