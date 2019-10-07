@@ -59,5 +59,9 @@ class TestMaxInteger(unittest.TestCase):
         with self.assertRaises(TypeError):
             max_integer(1024)
 
+    def test_max_last(self):
+        """ test 13 """
+        self.assertEqual(max_integer([1, 2, 5, 4, 3]), 5)
+
 if __name__ == '__main__':
     unittest.main()
