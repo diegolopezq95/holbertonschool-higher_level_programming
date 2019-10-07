@@ -74,3 +74,15 @@ Now use it:
     Traceback (most recent call last):
         ...
     ValueError: shapes (1,0) and (2,2) not aligned: 0 (dim 1) != 2 (dim 0)
+
+    >>> m_a = [[]]
+    >>> m_b = [[]]
+    >>> lazy_matrix_mul(m_a,)
+    Traceback (most recent call last):
+        ...
+    TypeError: lazy_matrix_mul() missing 1 required positional argument: 'm_b'
+
+    >>> lazy_matrix_mul()
+    Traceback (most recent call last):
+        ...
+    TypeError: lazy_matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
