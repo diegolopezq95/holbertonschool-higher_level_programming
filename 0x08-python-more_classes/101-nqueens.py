@@ -16,9 +16,9 @@ if int(argv[1]) < 4:
     exit(1)
 
 def check(board, row, col):
-    '''
+    """
     Checks valid positions in col
-    '''
+    """
     for i in range(col):
         if board[i] is row:
             return False
@@ -28,9 +28,9 @@ def check(board, row, col):
 
 
 def solve(board, col):
-    '''
+    """
     Solves the n_queens problem
-    '''
+    """
     if col is len(board):
         for i in range(len(board)):
             print("[{}, {}]".format(str(i), str(board[i])), end="")
