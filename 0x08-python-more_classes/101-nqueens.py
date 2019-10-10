@@ -15,6 +15,7 @@ if int(argv[1]) < 4:
     print("N must be at least 4")
     exit(1)
 
+
 def check(board, row, col):
     """
     Checks valid positions in col
