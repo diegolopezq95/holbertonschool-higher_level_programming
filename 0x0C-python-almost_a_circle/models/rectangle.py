@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ This module create Class Rectangle that inherits from Base.
 See:
-    ./1-main.py test file
+    ./4-main.py test file
 """
 
 
@@ -77,4 +77,20 @@ class Rectangle(Base):
         self.__y = y
 
     def area(self):
+        """
+        Return Area
+        """
         return (self.__width * self.__height)
+
+    def display(self):
+        """
+        Prints in stdout the Rectangle
+        """
+        string = []
+        for row in range(self.__height):
+            for col in range(self.__width):
+                string.append("#")
+            if row < self.__height - 1:
+                string.append("\n")
+        print("".join(string))
+
