@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ This module create Class Rectangle that inherits from Base.
 See:
-    ./4-main.py test file
+    ./7-main.py test file
 """
 
 
@@ -102,3 +102,11 @@ class Rectangle(Base):
         """
         return ("[Rectangle] ({}) {}/{} - {}/{}".format
                 (self.id, self.__x, self.__y, self.__width, self.__height))
+
+    def update(self, *args):
+        """
+        assigns an argument to each attribute
+        """
+        attrs = ["id", "width", "height", "x", "y"]
+        for arg in range(len(args)):
+            setattr(self, attrs[arg], args[arg])
