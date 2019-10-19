@@ -86,13 +86,15 @@ class Rectangle(Base):
         """
         Prints in stdout the Rectangle
         """
-        string = []
+
+        for row in range(self.__y):
+            print()
         for row in range(self.__height):
+            for col in range(self.__x):
+                print(" ", end="")
             for col in range(self.__width):
-                string.append("#")
-            if row < self.__height - 1:
-                string.append("\n")
-        print("".join(string))
+                print("#", end="")
+            print()
 
     def __str__(self):
         """
