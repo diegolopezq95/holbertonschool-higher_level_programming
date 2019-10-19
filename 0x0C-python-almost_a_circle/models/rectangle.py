@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ This module create Class Rectangle that inherits from Base.
 See:
-    ./7-main.py test file
+    ./8-main.py test file
 """
 
 
