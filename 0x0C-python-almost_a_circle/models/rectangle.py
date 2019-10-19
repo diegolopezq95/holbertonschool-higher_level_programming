@@ -94,3 +94,9 @@ class Rectangle(Base):
                 string.append("\n")
         print("".join(string))
 
+    def __str__(self):
+        """
+        Returns a string rectangle
+        """
+        return ("[Rectangle] ({}) {}/{} - {}/{}".format
+                (self.id, self.__x, self.__y, self.__width, self.__height))
