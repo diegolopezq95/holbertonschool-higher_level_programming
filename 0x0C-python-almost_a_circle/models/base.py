@@ -2,7 +2,7 @@
 """ This module create Class Base.
 The “base” of all other classes in this project
 See:
-    ./14-main.py test file
+    ./16-main.py test file
 """
 
 
@@ -29,7 +29,7 @@ class Base:
 
     def to_json_string(list_dictionaries):
         """
-        returns the JSON string representation
+        returns the JSON string representation of list_dictionaries
         """
         if list_dictionaries is None or len(list_dictionaries) == 0:
             return "[]"
@@ -50,3 +50,14 @@ class Base:
                 for arg in list_objs:
                     lists.append(arg.to_dictionary())
                 f.write(cls.to_json_string(lists))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """
+        returns the list of the JSON string representation json_string
+        """
+        lists = []
+        if json_string is None or len(json_string) == 0:
+            return lists
+        else:
+            return json.loads(json_string)
