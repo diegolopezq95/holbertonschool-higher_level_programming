@@ -56,7 +56,7 @@ class Rectangle(Base):
     def x(self):
         return self.__x
 
-    @height.setter
+    @x.setter
     def x(self, value):
         if type(value) is not int:
             raise TypeError("x must be an integer")
@@ -68,7 +68,7 @@ class Rectangle(Base):
     def y(self):
         return self.__y
 
-    @height.setter
+    @y.setter
     def y(self, value):
         if type(value) is not int:
             raise TypeError("y must be an integer")
