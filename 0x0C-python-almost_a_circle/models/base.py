@@ -2,7 +2,7 @@
 """ This module create Class Base.
 The “base” of all other classes in this project
 See:
-    ./16-main.py test file
+    ./17-main.py test file
 """
 
 
@@ -61,3 +61,15 @@ class Base:
             return lists
         else:
             return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """
+        returns an instance with all attributes already set
+        """
+        if cls.__name__ == "Rectangle":
+            dummy = cls(1, 1)
+        if cls.__name__ == "Square":
+            dummy = cls(1)
+        dummy.update(**dictionary)
+        return dummy
