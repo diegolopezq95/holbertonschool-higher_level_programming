@@ -9,6 +9,7 @@ from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
 
+
 class TestBase(unittest.TestCase):
     """
     All tests
@@ -53,7 +54,6 @@ class TestBase(unittest.TestCase):
         i = Base("Holberton")
         self.assertEqual("Holberton", i.id)
 
-
     def test_docs_B(self):
         """
         Test for Base class docstring
@@ -92,7 +92,6 @@ class TestBase(unittest.TestCase):
         """
         i = Base.to_json_string([])
         self.assertEqual(i, "[]")
-
 
     def test_save_to_file_none(self):
         """

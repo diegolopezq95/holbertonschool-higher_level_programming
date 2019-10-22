@@ -1,4 +1,3 @@
-
 #!/usr/bin/python3
 """
 Unittest for square.py
@@ -10,13 +9,14 @@ from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
 
-class TestRectangle(unittest.TestCase):
+
+class TestSquare(unittest.TestCase):
     """
     All tests
     """
     def test_S(self):
         """
-        Build rectangle test
+        Build Square test
         """
         s = Square(10, 2)
         self.assertEqual(5, s.id)
@@ -26,7 +26,7 @@ class TestRectangle(unittest.TestCase):
 
     def test_Area(self):
         """
-        Rectangle area test
+        Square area test
         """
         s = Square(10, 2)
         self.assertEqual(100, s.area())
