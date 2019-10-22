@@ -7,6 +7,8 @@ See:
 
 
 import json
+import os
+import csv
 
 
 class Base:
@@ -29,7 +31,7 @@ class Base:
 
     def to_json_string(list_dictionaries):
         """
-        returns the JSON string representation of list_dictionaries
+        Returns the JSON string representation of list_dictionaries
         """
         if list_dictionaries is None or len(list_dictionaries) == 0:
             return "[]"
@@ -54,7 +56,7 @@ class Base:
     @staticmethod
     def from_json_string(json_string):
         """
-        returns the list of the JSON string representation json_string
+        Returns the list of the JSON string representation json_string
         """
         lists = []
         if json_string is None or len(json_string) == 0:
@@ -65,7 +67,7 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """
-        returns an instance with all attributes already set
+        Returns an instance with all attributes already set
         """
         if cls.__name__ == "Rectangle":
             dummy = cls(1, 1)
@@ -73,3 +75,62 @@ class Base:
             dummy = cls(1)
         dummy.update(**dictionary)
         return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        """
+        Return a list of instances from a file
+        """
+        filename = cls.__name__ + ".json"
+        lists = []
+        if os.path.exists(filename):
+            with open(filename, 'r') as f:
+                elements = cls.from_json_string(f.read())
+                for elem in elements:
+                    lists.append(cls.create(**elem))
+                return lists
+        else:
+            return lists
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        CSV string representation of list_objs to a file
+        """
+        filename = cls.__name__ + ".csv"
+        lists = []
+        with open(filename, 'w') as csv_f:
+            writer = csv.writer(csv_f, delimiter=',')
+            if list_objs is None:
+                writer.writerow([])
+            else:
+                if cls.__name__ == "Rectangle":
+                    lists = ['id', 'width', 'height', 'x', 'y']
+                if cls.__name__ == "Square":
+                    lists = ['id', 'size', 'x', 'y']
+                writer = csv.DictWriter(csv_f, fieldnames=lists)
+                for arg in list_objs:
+                    writer.writerow(arg.to_dictionary())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        Return a list of instances from a file
+        """
+        filename = cls.__name__ + '.csv'
+        lists = []
+        my_list = []
+        if os.path.exists(filename):
+            with open(filename, 'r') as csv_f:
+                if cls.__name__ == "Rectangle":
+                    lists = ['id', 'width', 'height', 'x', 'y']
+                if cls.__name__ == "Square":
+                    lists = ['id', 'size', 'x', 'y']
+                reader = csv.DictReader(csv_f, fieldnames=lists)
+                for row in reader:
+                    for keys, values in row.items():
+                        row[keys] = int(values)
+                    my_list.append(row)
+                return [cls.create(**elem) for elem in my_list]
+        else:
+            return lists
