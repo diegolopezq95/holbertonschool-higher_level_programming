@@ -4,13 +4,27 @@ Unittest for base.py
 """
 
 import unittest
+import pep8
 from models.base import Base
-
+from models.rectangle import Rectangle
+from models.square import Square
 
 class TestBase(unittest.TestCase):
     """
-    Base tests
+    All tests
     """
+    def setUp(self):
+        """
+        setUp test
+        """
+        self.n = 1
+
+    def tearDown(self):
+        """
+        tearDown test
+        """
+        del self.n
+
     def test_id(self):
         """
         Test no id
@@ -72,6 +86,14 @@ class TestBase(unittest.TestCase):
         i = Base.to_json_string([{"John": 23}, {"Betty": 56}])
         self.assertEqual(str, type(i))
 
+    def test_to_json_empty(self):
+        """
+        Test for to json string with no args
+        """
+        i = Base.to_json_string([])
+        self.assertEqual(i, "[]")
+
+
     def test_save_to_file_none(self):
         """
         Tests save to file None
@@ -79,3 +101,25 @@ class TestBase(unittest.TestCase):
         Base.save_to_file(None)
         with open("Base.json", "r") as f:
             self.assertEqual(f.read(), "[]")
+
+    def test_save_to__file_empty(self):
+        """
+        Tests save to file empty
+        """
+        Base.save_to_file([])
+        with open("Base.json", "r") as f:
+            self.assertEqual(f.read(), "[]")
+
+    def test_from_json_None(self):
+        """
+        Test from json None
+        """
+        list_output = Base.from_json_string(None)
+        self.assertEqual(list_output, [])
+
+    def test_from_json_empty(self):
+        """
+        Test from json empty
+        """
+        list_output = Base.from_json_string("")
+        self.assertEqual(list_output, [])
