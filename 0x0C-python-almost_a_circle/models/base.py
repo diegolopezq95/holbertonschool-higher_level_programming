@@ -9,7 +9,8 @@ See:
 import json
 import os
 import csv
-
+import turtle
+import random
 
 class Base:
     """
@@ -143,31 +144,30 @@ class Base:
         """
         my_turtle = turtle.Turtle()
         my_turtle.pensize(5)
-        my_turtle.Screen().bgcolor("green")
-        colors = ["yellow", "blue", "red"]
-        my_turtle.pencolor("purple")
-        my_turtle.fillcolor("violet")
+        colours_b = ["white", "black", "brown", "grey"]
+        colours = ["yellow", "blue", "red", "orange", "magenta", "green"]
+        turtle.Screen().bgcolor(random.choice(colours_b))
+        my_turtle.color(random.choice(colours))
         for rectangle in list_rectangles:
             my_turtle.up()
-            my_turtle.setx(rectangle.x)
-            my_turtle.sety(rectangle.y)
+            my_turtle.setx(rectangle.x + 50)
+            my_turtle.sety(rectangle.y + 50)
             my_turtle.down()
             for i in range(2):
                 my_turtle.forward(rectangle.width)
                 my_turtle.left(90)
                 my_turtle.forward(rectangle.height)
                 my_turtle.left(90)
+                turtle.Screen().bgcolor(random.choice(colours_b))
             my_turtle.color(random.choice(colours))
-        my_turtle.pencolor("magenta")
-        my_turtle.fillcolor("orange")
         for square in list_squares:
             my_turtle.up()
-            my_turtle.setx(square.x)
-            my_turtle.sety(square.y)
+            my_turtle.setx(square.x - 100)
+            my_turtle.sety(square.y - 100)
             my_turtle.down()
             for i in range(4):
                 my_turtle.forward(square.size)
                 my_turtle.left(90)
+                turtle.Screen().bgcolor(random.choice(colours_b))
             my_turtle.color(random.choice(colours))
-        tu.ht()
-        turtle.done()
+        my_turtle.ht()
