@@ -18,8 +18,8 @@ used to execute the 'SQL' statements in 'Python'
 cursor = db.cursor()
 """ getting records from the table
 """
-save = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format(record)
-cursor.execute(save)
+cursor.execute("SELECT * FROM states WHERE name = '{}' ORDER BY id ASC"
+               .format(record))
 """ fetching all records from the 'cursor' object
 """
 records = cursor.fetchall()
