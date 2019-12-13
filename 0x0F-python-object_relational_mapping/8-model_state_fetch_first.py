@@ -8,7 +8,7 @@ from sqlalchemy import (create_engine)
 from sqlalchemy.orm import sessionmaker
 
 if __name__ == "__main__":
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
                            .format(sys.argv[1], sys.argv[2], sys.argv[3]))
     Base.metadata.create_all(engine)
     """Session object provides the entrypoint to acquire a Query object
@@ -20,6 +20,9 @@ if __name__ == "__main__":
     new Query object which will issue mapper queries within
     the context of this Session
     """
-    for state in session.query(State).order_by(State.id).filter_by(id="1").all():
+    state = session.query(State).first()
+    if state is None:
+        print("Nothing")
+    else:
         print("{}: {}".format(state.id, state.name))
     session.close()
