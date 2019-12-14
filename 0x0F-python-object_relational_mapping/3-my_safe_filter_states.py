@@ -12,20 +12,21 @@ if __name__ == "__main__":
     record = sys.argv[4]
     db = MySQLdb.connect(host="localhost", port=3306, user=users,
                          passwd=password, db=datab, charset="utf8")
-""" create an instance of 'cursor' class
-used to execute the 'SQL' statements in 'Python'
-"""
-cursor = db.cursor()
-""" getting records from the table
-"""
-cursor.execute("SELECT * FROM states WHERE name = (%s) ORDER BY id ASC",
-               (record,))
-""" fetching all records from the 'cursor' object
-"""
-records = cursor.fetchall()
-""" showing the data
-"""
-for row in records:
-    print(row)
-cursor.close()
-db.close()
+    """ create an instance of 'cursor' class
+    used to execute the 'SQL' statements in 'Python'
+    """
+    cursor = db.cursor()
+    """ getting records from the table
+    """
+    cursor.execute("SELECT * FROM states WHERE name LIKE\
+    BINARY (%s) ORDER BY id ASC",
+                   (record,))
+    """ fetching all records from the 'cursor' object
+    """
+    records = cursor.fetchall()
+    """ showing the data
+    """
+    for row in records:
+        print(row)
+    cursor.close()
+    db.close()
