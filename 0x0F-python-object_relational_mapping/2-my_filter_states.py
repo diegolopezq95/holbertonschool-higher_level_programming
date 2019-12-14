@@ -18,8 +18,9 @@ if __name__ == "__main__":
     cursor = db.cursor()
     """ getting records from the table
     """
-    cursor.execute("SELECT * FROM states WHERE name = '{}' ORDER BY id ASC"
-               .format(record))
+    cursor.execute("SELECT * FROM states WHERE name LIKE\
+                   BINARY '{}' ORDER BY id ASC"
+                   .format(record))
     """ fetching all records from the 'cursor' object
     """
     records = cursor.fetchall()
