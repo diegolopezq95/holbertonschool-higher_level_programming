@@ -20,7 +20,7 @@ if __name__ == "__main__":
     new Query object which will issue mapper queries within
     the context of this Session
     """
-    for state in session.query(State).filter(State.name.like("%a%")):
+    for state in session.query(State).filter(State.name = ("%a%")):
         session.delete(state)
     session.commit()
     session.close()
