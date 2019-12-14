@@ -17,7 +17,8 @@ if __name__ == "__main__":
     cursor = db.cursor()
     """ getting records from the table
     """
-    cursor.execute("SELECT * FROM states WHERE name like \"N%\" ORDER BY id ASC")
+    cursor.execute("SELECT * FROM states WHERE name like \"N%\"\
+                   ORDER BY id ASC")
     """ fetching all records from the 'cursor' object
     """
     records = cursor.fetchall()
