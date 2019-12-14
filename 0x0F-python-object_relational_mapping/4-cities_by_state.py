@@ -10,20 +10,20 @@ if __name__ == "__main__":
     datab = sys.argv[3]
     db = MySQLdb.connect(host="localhost", port=3306, user=users,
                          passwd=password, db=datab, charset="utf8")
-""" create an instance of 'cursor' class
-used to execute the 'SQL' statements in 'Python'
-"""
-cursor = db.cursor()
-""" getting records from the table
-"""
-cursor.execute("SELECT cities.id, cities.name, states.name FROM cities\
-               INNER JOIN states ON state_id = states.id ORDER BY id ASC")
-""" fetching all records from the 'cursor' object
-"""
-records = cursor.fetchall()
-""" showing the data
-"""
-for row in records:
-    print(row)
-cursor.close()
-db.close()
+    """ create an instance of 'cursor' class
+    used to execute the 'SQL' statements in 'Python'
+    """
+    cursor = db.cursor()
+    """ getting records from the table
+    """
+    cursor.execute("SELECT cities.id, cities.name, states.name FROM cities\
+                   INNER JOIN states ON state_id = states.id ORDER BY id ASC")
+    """ fetching all records from the 'cursor' object
+    """
+    records = cursor.fetchall()
+    """ showing the data
+    """
+    for row in records:
+        print(row)
+    cursor.close()
+    db.close()
