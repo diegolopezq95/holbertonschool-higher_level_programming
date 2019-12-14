@@ -20,7 +20,7 @@ if __name__ == "__main__":
     """
     cursor.execute("SELECT cities.name FROM cities\
                    INNER JOIN states ON states.id = cities.state_id\
-                   WHERE states.name LIKE BINARY %s\
+                   WHERE states.name = (%s)\
                    ORDER BY cities.id ASC", (record,))
     """ fetching all records from the 'cursor' object
     """
