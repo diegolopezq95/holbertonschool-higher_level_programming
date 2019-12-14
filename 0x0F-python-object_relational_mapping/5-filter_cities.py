@@ -27,11 +27,12 @@ if __name__ == "__main__":
     records = cursor.fetchall()
     """ showing the data
     """
-    for row in range(len(records)):
+    print(', '.join([row[0] for row in records]))
+    """for row in range(len(records)):
         args = ''.join(records[row])
         if row != len(records) - 1:
             print("{}".format(args), end=", ")
         else:
-            print("{}".format(args))
+            print("{}".format(args))"""
     cursor.close()
     db.close()
