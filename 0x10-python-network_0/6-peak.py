@@ -4,18 +4,15 @@
 
 
 def find_peak_lo_hi(arr, lo, hi, n):
-    if n % 2 == 0:
-        i = lo + (hi - lo)/2
-    else:
-        i = lo + (hi - lo)/2 + 1
+    i = lo + (hi - lo)/2
     i = int(i)
     if ((i == 0 or arr[i - 1] <= arr[i]) and
         (i == n - 1 or arr[i + 1] <= arr[i])):
         return arr[i]
     elif (i > 0 and arr[i - 1] > arr[i]):
-        return find_peak_lo_hi(arr, lo, i - 1, n)
+        return find_peak_lo_hi(arr, lo, (i - 1), n)
     else:
-        return find_peak_lo_hi(arr, i + 1, hi, n)
+        return find_peak_lo_hi(arr, (i + 1), hi, n)
 
 
 def find_peak(list_of_integers):
