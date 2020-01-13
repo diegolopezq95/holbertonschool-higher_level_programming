@@ -19,6 +19,6 @@ if __name__ == "__main__":
     i = 0
     for key in json:
         if i < 10:
-            print("{}: {}".format(key['sha'],\
+            print("{}: {}".format(key['sha'],
                                   key['commit']['author']['name']))
             i += 1
