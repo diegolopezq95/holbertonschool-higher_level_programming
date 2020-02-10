@@ -1,5 +1,7 @@
 #!/usr/bin/node
-const valueValues = require('./101-data.js').dict;
+const dict = require('./101-data.js');
+const dictValues = Object.values(dict);
+const valueValues = dictValues[0];
 const dictOrder = {};
 for (const key in valueValues) {
   if (!(valueValues[key] in dictOrder)) {
