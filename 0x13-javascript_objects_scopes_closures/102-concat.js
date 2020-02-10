@@ -2,7 +2,7 @@
 const fileA = process.argv[2];
 const fileB = process.argv[3];
 const fileC = process.argv[4];
-var fs = require('fs');
+const fs = require('fs');
 const contentfileA = fs.readFileSync(fileA);
 const contentfileB = fs.readFileSync(fileB);
 fs.writeFileSync(fileC, contentfileA + '\n' + contentfileB + '\n');
