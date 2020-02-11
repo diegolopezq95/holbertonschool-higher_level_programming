@@ -1,9 +1,9 @@
 #!/usr/bin/node
 const url = process.argv[2];
 const request = require('request');
-request(url, function (error, response, body) {
-  if (error) {
-    throw (error);
+request(url, function (err, response, body) {
+  if (err) {
+    throw (err);
   } else {
     const resultsList = JSON.parse(body).results;
     let numFilms = 0;
