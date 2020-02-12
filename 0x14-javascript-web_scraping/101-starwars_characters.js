@@ -9,7 +9,7 @@ request(completeUrl, function (error, response, body) {
     const filmList = JSON.parse(body).characters;
     for (const key in filmList) {
       const chars = filmList[key];
-      request(chars, async function (error, response, body) {
+      request(chars, function (error, response, body) {
         if (error) {
           throw (error);
         } else {
