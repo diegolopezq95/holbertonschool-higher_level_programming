@@ -2,7 +2,7 @@ $(function () {
   $('INPUT#btn_translate').click(function () {
     $('DIV#hello').empty();
     const langCode = $('INPUT#language_code').val();
-    console.log(langCode)
+    console.log(langCode);
     $.ajax({
       type: 'GET',
       url: `https://fourtonfish.com/hellosalut/?lang=${langCode}`,
